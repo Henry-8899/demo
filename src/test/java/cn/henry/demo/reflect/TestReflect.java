@@ -3,7 +3,11 @@ package cn.henry.demo.reflect;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
-
+/**
+ * @Description:映射类相关
+ * @Author:hang
+ * @Date:2019-09-01 20:02
+ **/
 public class TestReflect {
 
     @Test
