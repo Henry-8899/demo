@@ -3,9 +3,8 @@ package cn.henry.demo.reflect;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
+import java.util.Date;
 
 /**
  * @Description:映射类相关
@@ -84,6 +83,45 @@ public class TestReflect {
             System.out.println(o);
         }
         System.out.println("-------------------- Field reflect end ----------------------------------");
+
+        System.out.println("-------------------- Method reflect start ----------------------------------");
+
+        //获得指定带有参数的方法
+        Method getMinMethod = aClass.getDeclaredMethod("getMin", int.class, String[].class);
+
+        //获得方法的修饰符 public
+        int modifiers = getMinMethod.getModifiers();
+        String string = Modifier.toString(modifiers);
+
+        //获得方法上注解；是否存在
+        Log methodAnnotation = getMinMethod.getAnnotation(Log.class);
+        boolean annotationPresent1 = getMinMethod.isAnnotationPresent(Log.class);
+
+        //获得方法参数个数
+        int parameterCount = getMinMethod.getParameterCount();
+
+        Method getDate = aClass.getDeclaredMethod("getDate", Date.class);
+
+        //获得方法参数类型
+        //两者区别 见：https://stackoverflow.com/questions/6747383/difference-between-getgenericparametertypes-and-getparametertypes
+        Class<?>[] parameterTypes = getDate.getParameterTypes();
+        Type[] genericParameterTypes = getDate.getGenericParameterTypes();
+
+        //动态执行方法
+        Object invoke = getMinMethod.invoke(newInstance, 1, new String[]{"a,", "b"});
+
+        Method[] classDeclaredMethods = aClass.getDeclaredMethods();
+        for (Method m : classDeclaredMethods){
+            //获得 method name
+            String name = m.getName();
+            //获得方法返回类型
+            Class<?> returnType = m.getReturnType();
+            Type genericReturnType = m.getGenericReturnType();
+
+            System.out.println(String.format(" method name : %s; returnType: %s",name,returnType.toString()));
+        }
+        System.out.println("-------------------- Method reflect end ----------------------------------");
+
 
     }
 }
