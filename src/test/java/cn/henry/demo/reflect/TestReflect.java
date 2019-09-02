@@ -28,15 +28,19 @@ public class TestReflect {
         //获得类 by forname
         Class<?> aClass = Class.forName("cn.henry.demo.reflect.SourceRequest");
 
-        SourceRequest request = new SourceRequest(1, 2L);
+        SourceRequest request = new SourceRequest(1, 2);
 
         Class<? extends SourceRequest> requestClass = request.getClass();
         //获得该类下 所有字段
         Field[] fields = requestClass.getDeclaredFields();
+        //获得 指定公共字段
+        Field sourceType = requestClass.getField("sourceType");
 
 
         //获得注解
         Annotation[] declaredAnnotations = requestClass.getDeclaredAnnotations();
+        //获得指定注解
+        Log classAnnotation = requestClass.getAnnotation(Log.class);
 
         //获得所有构造器
         Constructor<?>[] constructors = requestClass.getConstructors();
@@ -58,7 +62,7 @@ public class TestReflect {
         Object newInstance = aClass.newInstance();
         if (newInstance instanceof SourceRequest) {
             SourceRequest cast = SourceRequest.class.cast(newInstance);
-            cast.setSourceId(888L);
+            cast.setSourceId(888);
             System.out.println(cast.getSourceId());
         }
 
@@ -74,9 +78,11 @@ public class TestReflect {
             String name = f.getName();
             //f.get(obj) obj:从中提取表示字段的值的对象
             Object o = f.get(request);
+
+            //f.set(obj,value) obj:从中提取表示字段的值的对象 value:目标值
+            f.set(request, 3);
             System.out.println(o);
         }
-
         System.out.println("-------------------- Field reflect end ----------------------------------");
 
     }

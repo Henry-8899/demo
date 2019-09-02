@@ -11,8 +11,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Log
 public class SourceRequest {
-    private Integer sourceType;
-    private Long sourceId;
+    public Integer sourceType;
+    private Integer sourceId;
 
     Integer getMax(){
         return 1;
