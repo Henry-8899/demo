@@ -74,5 +74,15 @@ public class TestGroupBy {
         Map<String, Optional<Fruit>> e = fruitList.stream().collect(Collectors.groupingBy(Fruit::getName, Collectors.maxBy(Comparator.comparingInt(Fruit::getPrice))));
         System.out.println("e = " + e);
 
+        //自然排序 or 也可自我实现
+        List<Integer> integers = Lists.newArrayList(1, 9, 3, 2, 5, 0);
+        List<Integer> collect = integers.stream().sorted().collect(Collectors.toList());
+        System.out.println(collect);
+
+        //排序 by 价格
+        List<Fruit> sortedList = fruitList.stream().sorted(Comparator.comparingInt(Fruit::getPrice)).collect(Collectors.toList());
+        //or List.sort()
+        fruitList.sort(Comparator.comparingInt(Fruit::getPrice).thenComparing(Fruit::getName));
+
     }
 }
