@@ -87,4 +87,27 @@ public class SynchronizedDemo {
          */
         System.out.println("synchronized 方法");
     }
+
+    /**
+     *  public synchronized void method3();
+     *     descriptor: ()V
+     *     flags: (0x0021) ACC_PUBLIC, ACC_SYNCHRONIZED
+     *     Code:
+     *       stack=2, locals=1, args_size=1
+     *          0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+     *          3: ldc           #6                  // String synchronized 静态 方法
+     *          5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     *          8: return
+     *       LineNumberTable:
+     *         line 92: 0
+     *         line 93: 8
+     *       LocalVariableTable:
+     *         Start  Length  Slot  Name   Signature
+     *             0       9     0  this   Lcn/henry/demo/synchronize/SynchronizedDemo;
+     */
+    public synchronized void method3() {
+        //与上无太大差异
+        System.out.println("synchronized 静态 方法");
+    }
+
 }
