@@ -13,7 +13,7 @@ public class TestString {
         String s3 = new String("123");
         String s4 = new String("123");
 
-        System.out.println(s3 == s4); //true
+        System.out.println(s3 == s4); //false
 
         int i = s3.hashCode();
         System.out.println(i);
