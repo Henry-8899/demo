@@ -10,6 +10,10 @@ public class TestHashMap {
     @Test
     public void test() {
 
+        /**
+         * 这一步 虽然初始化了容量，但是会重新计算合适的容量的大小，之后在put()方法才会实际扩容
+         * 可debug 追踪
+         */
         HashMap<Object, Object> hashMap = new HashMap<>(9);
         hashMap.put("a","1");
         System.out.println(hashMap.size());
