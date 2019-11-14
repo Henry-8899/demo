@@ -14,8 +14,10 @@ public class TestBigDecimal {
     @Test
     public void test() {
 
-        BigDecimal bigDecimal = new BigDecimal("2000.5215").setScale(0, RoundingMode.DOWN);
+        BigDecimal bigDecimal = new BigDecimal("2000.0215").setScale(0, RoundingMode.DOWN);
+        BigDecimal decimal = new BigDecimal("2000.0215").setScale(0, RoundingMode.UP);
         System.out.println(bigDecimal);
+        System.out.println(decimal);
     }
 
 
