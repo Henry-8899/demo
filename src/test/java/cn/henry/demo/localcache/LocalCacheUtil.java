@@ -19,7 +19,7 @@ public class LocalCacheUtil {
     }
 
     //使用默认容量创建一个Map
-    private static ConcurrentHashMap<String, CacheEntity> cache = new ConcurrentHashMap<String, CacheEntity>(DEFAULT_CAPACITY);
+    public static ConcurrentHashMap<String, CacheEntity> cache = new ConcurrentHashMap<String, CacheEntity>(DEFAULT_CAPACITY);
 
     /**
      * 将key-value 保存到本地缓存并制定该缓存的过期时间
@@ -28,7 +28,7 @@ public class LocalCacheUtil {
      * @param expireTime 过期时间，如果是-1 则表示永不过期
      * @return
      */
-    public boolean putValue(String key, Object value, int expireTime) {
+    public static boolean putValue(String key, Object value, int expireTime) {
         return putCloneValue(key, value, expireTime);
     }
 
@@ -37,10 +37,10 @@ public class LocalCacheUtil {
      *
      * @param key
      * @param value
-     * @param expireTime
+     * @param expireTime 毫秒级别
      * @return
      */
-    private boolean putCloneValue(String key, Object value, int expireTime) {
+    private static boolean putCloneValue(String key, Object value, int expireTime) {
         try {
             if (cache.size() >= MAX_CAPACITY) {
                 return false;
@@ -60,7 +60,7 @@ public class LocalCacheUtil {
      * @param object
      * @return
      */
-    private <T extends Serializable> T clone(T object) {
+    private static <T extends Serializable> T clone(T object) {
         T cloneObject = null;
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -82,7 +82,7 @@ public class LocalCacheUtil {
      * @param key
      * @return
      */
-    public Object getValue(String key) {
+    public static Object getValue(String key) {
         CacheEntity cacheEntity = cache.get(key);
         if (cacheEntity != null) {
             return cacheEntity.getValue();
@@ -101,6 +101,7 @@ public class LocalCacheUtil {
      * 过期处理线程
      */
     static class TimeoutTimerThread implements Runnable {
+        @Override
         public void run() {
             while (true) {
                 try {
