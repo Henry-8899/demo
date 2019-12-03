@@ -35,10 +35,12 @@ public class LengthOfLongestSubstring {
         int res = 0, start = 0;
         for (int i = 0; i < chars.length; i++) {
             if (temp.containsKey(chars[i])) {
+                //todo mark：这里必须是 +1 不然当为""/"a"/"ab" 最后计算有误
                 start = Math.max(temp.put(chars[i], i) + 1, start);
             }
 
             temp.put(chars[i], i);
+            //同上注意点
             res = Math.max(res, i - start + 1);
 
         }
