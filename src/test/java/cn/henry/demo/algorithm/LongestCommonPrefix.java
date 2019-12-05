@@ -2,6 +2,9 @@ package cn.henry.demo.algorithm;
 
 import org.junit.Test;
 
+/**
+ * 最长公共前缀
+ */
 public class LongestCommonPrefix {
 
 

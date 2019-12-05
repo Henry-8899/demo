@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
+/**
+ * 无重复字串的长度
+ */
 public class LengthOfLongestSubstring {
 
 
