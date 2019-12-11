@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 /**
  * 字符串的排列
+ * 用到的算法： 滑动窗口
  */
 public class CheckInclusion {
 
@@ -28,6 +29,16 @@ public class CheckInclusion {
         System.out.println(s);
     }
 
+    /**
+     * 这道题，我们用到的算法是 滑动窗口
+     * 首先字符串s1的排列的可能性应该是它的长度的阶乘，因为字符串长度可能为10000，所以找出所有排列情况是不太可能。
+     * 我们可以转换思路，不要关注排列的形式，而是关注排列中元素的数量关系
+     * 比如 aab，那么，转换为数量关系就是{a:2,b:1}，因为 S1 长度为 3，所以我们的窗口长度也为3
+     * 如果我们在 S2 的找到了这样一个窗口符合出现 a 的次数是两个， b 是一个，那么 S2 就是包含 S1 的排列的
+     * @param s1
+     * @param s2
+     * @return
+     */
     public boolean checkInclusion(String s1, String s2) {
         int len1 = s1.length();
         int len2 = s2.length();
