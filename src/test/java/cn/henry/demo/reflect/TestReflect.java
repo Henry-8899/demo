@@ -1,5 +1,6 @@
 package cn.henry.demo.reflect;
 
+import cn.henry.demo.instance.TestInstance;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
@@ -64,6 +65,11 @@ public class TestReflect {
             cast.setSourceId(888);
             System.out.println(cast.getSourceId());
         }
+
+        /**
+         * 判断某对象是否是某个类的实例
+         * @see TestInstance
+         */
 
 
         System.out.println("-------------------- Class reflect end ----------------------------------");
