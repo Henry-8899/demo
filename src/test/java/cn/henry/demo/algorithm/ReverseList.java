@@ -32,8 +32,11 @@ public class ReverseList {
         ListNode prev = null;
         ListNode curr = head;
         while (curr != null) {
+            //交换位置
             ListNode nextTemp = curr.next;
             curr.next = prev;
+
+            //为了下次循环
             prev = curr;
             curr = nextTemp;
         }
