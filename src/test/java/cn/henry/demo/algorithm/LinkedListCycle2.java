@@ -17,16 +17,16 @@ import java.util.Set;
 public class LinkedListCycle2 {
 
 
-    public static class ListNode {
+    public static class Node {
         private Object data;
-        public ListNode next;
+        public Node next;
 
-        public ListNode(Object data, ListNode next) {
+        public Node(Object data, Node next) {
             this.data = data;
             this.next = next;
         }
 
-        public ListNode(Object data) {
+        public Node(Object data) {
             this.data = data;
         }
     }
