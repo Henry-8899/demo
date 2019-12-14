@@ -1,4 +1,4 @@
-package cn.henry.demo.algorithm;
+package cn.henry.demo.algorithm.linkedlist;
 
 /**
  * 反转链表

@@ -1,4 +1,4 @@
-package cn.henry.demo.algorithm;
+package cn.henry.demo.algorithm.linkedlist;
 
 import java.util.HashSet;
 import java.util.Set;

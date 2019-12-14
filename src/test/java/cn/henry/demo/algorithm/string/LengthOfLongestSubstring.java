@@ -1,4 +1,4 @@
-package cn.henry.demo.algorithm;
+package cn.henry.demo.algorithm.string;
 
 import org.junit.Test;
 
