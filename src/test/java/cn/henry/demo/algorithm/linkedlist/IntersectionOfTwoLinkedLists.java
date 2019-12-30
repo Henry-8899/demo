@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 编写一个程序，找到两个单链表相交的起始节点。
+ * 编写一个程序，找到两个单链表相交的起始节点。 leetcode 160
  */
 public class IntersectionOfTwoLinkedLists {
 

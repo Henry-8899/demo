@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 /**
- * 字符串的排列
+ * 字符串的排列 leetcode 567
  * 用到的算法： 滑动窗口
  */
 public class CheckInclusion {

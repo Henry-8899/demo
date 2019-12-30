@@ -1,7 +1,7 @@
 package cn.henry.demo.algorithm.linkedlist;
 
 /**
- * 链表中两数之和
+ * 链表中两数之和 leetcode 2
  */
 public class AddTwoNumbers {
 
@@ -37,7 +37,11 @@ public class AddTwoNumbers {
             int y = (q != null) ? q.val : 0;
             int sum = carry + x + y;
             carry = sum / 10;
+
+            //设置当前节点的下一个节点
             curr.next = new ListNode(sum % 10);
+
+            //重新设置当前节点元素
             curr = curr.next;
             if (p != null) p = p.next;
             if (q != null) q = q.next;

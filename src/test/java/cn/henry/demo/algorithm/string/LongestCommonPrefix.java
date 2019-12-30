@@ -3,7 +3,7 @@ package cn.henry.demo.algorithm.string;
 import org.junit.Test;
 
 /**
- * 最长公共前缀
+ * 最长公共前缀 leetcode 14
  */
 public class LongestCommonPrefix {
 

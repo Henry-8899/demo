@@ -1,7 +1,7 @@
 package cn.henry.demo.algorithm.linkedlist;
 
 /**
- * 反转链表
+ * 反转链表 leetcode 206
  * 输入: 1->2->3->4->5->NULL
  * 输出: 5->4->3->2->1->NULL
  */

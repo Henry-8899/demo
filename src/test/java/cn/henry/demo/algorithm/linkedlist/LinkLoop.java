@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 判断链表是否有环
+ * 判断链表是否有环 leetcode 141
  */
 public class LinkLoop {
 
