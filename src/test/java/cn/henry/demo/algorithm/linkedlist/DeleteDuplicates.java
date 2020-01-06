@@ -35,6 +35,7 @@ public class DeleteDuplicates {
      * @return
      */
     public ListNode deleteDuplicates(ListNode head) {
+        //特别注意：给定的是一个排序链表；已经排好顺序了；不会存在：1->2->3->4->5->1这种情况；
         ListNode current = head;
         while (current != null && current.next != null) {
             if (current.next.val == current.val) {
