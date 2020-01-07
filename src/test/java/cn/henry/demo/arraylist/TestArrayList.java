@@ -25,6 +25,10 @@ public class TestArrayList {
         //前闭后开 [0,2) 这样一个区间
         List<Integer> integers1 = integers.subList(0, 2);
         List<Integer> integers2 = integers.subList(2, 4);
+
+
+
+        int i = 8 /3;
         System.out.println("end");
 
 
