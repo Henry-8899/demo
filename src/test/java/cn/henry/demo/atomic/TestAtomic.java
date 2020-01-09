@@ -2,11 +2,9 @@ package cn.henry.demo.atomic;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-import java.util.stream.Collectors;
+import java.util.concurrent.atomic.AtomicStampedReference;
 
 public class TestAtomic {
 
@@ -45,11 +43,15 @@ public class TestAtomic {
         System.out.println("AtomicIntegerArray_getAndAdd : " + arrayAndAdd + "; incrementAndGet : " + integerArray);
         System.out.println("---------------------AtomicIntegerArray end-----------------------");
 
+        System.out.println("---------------------AtomicStampedReference start-----------------------");
+        //利用此stamp初始化值，可有效解决AtomicInteger ABA问题；具体多线程实例：见：https://blog.csdn.net/Alice_8899/article/details/103912228
+        AtomicStampedReference<Integer> stampedReference = new AtomicStampedReference<>(10, 0);
+        boolean b1 = stampedReference.compareAndSet(stampedReference.getReference(), 15, stampedReference.getStamp(), stampedReference.getStamp() + 1);
 
-        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 8, 10);
-        List<Integer> collect = integers.stream().filter(e -> e > 4).collect(Collectors.toList());
-        System.out.println(collect);
-
+        Integer reference = stampedReference.getReference();
+        int stamp = stampedReference.getStamp();
+        System.out.println("stamp=" + stamp + "; reference=" + reference);
+        System.out.println("---------------------AtomicStampedReference end-----------------------");
 
     }
 
