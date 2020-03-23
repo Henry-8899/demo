@@ -53,7 +53,7 @@ public class AddTwoNumbers2 {
         return head.next;
     }
 
-    //利用压栈，先进先出原理
+    //利用压栈，后进先出原理
     private Stack<Integer> buildStack(ListNode l) {
         Stack<Integer> stack = new Stack<>();
         while (l != null) {
